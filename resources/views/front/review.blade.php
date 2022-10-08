@@ -8,7 +8,7 @@
                     <h2>HARI / TANGGAL</h2>
                     <div class="fill">
                         @foreach ($hasil as $item)
-                        <h3>{{$item->tgl}}</h3>
+                        <span style="font-size:30px">{{$item->tgl}}</span>
                         <hr>    
                         @endforeach
                     </div>
@@ -17,7 +17,12 @@
                     <h2>SCORE</h2>
                     <div class="large-fill">
                         @foreach ($hasil as $item)
-                        <h3>{{$item->nilai}}</h3>
+                        <?php
+                            if ($item->nilai==NULL) {
+                                $item->nilai=0;
+                            }
+                        ?>
+                        <span style="font-size:48px">{{$item->nilai}}</span>
                         <hr>
                         @endforeach 
                         </div>
@@ -26,7 +31,7 @@
                         <h2>TENTANG</h2>
                         <div class="fill">
                         @foreach ($hasil as $item)
-                        <h3>{{$peraturan->find($item->peraturan_id)->tentang}}</h3>
+                        <span style="font-size:12px">{{$peraturan->find($item->peraturan_id)->tentang}}</span>
                         <hr>
                         @endforeach
                         </div>
